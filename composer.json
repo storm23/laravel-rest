@@ -1,0 +1,30 @@
+{
+    "name": "storm23/laravel-rest",
+    "description": "",
+    "authors": [
+        {
+            "name": "Julien Goldberg",
+            "email": "julien.goldberg@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "storm23/api-client-php": "3.*",
+        "illuminate/pagination": "5.4.*",
+        "illuminate/support": "5.4.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.5.*",
+        "orchestra/testbench": "~3.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Storm23\\LaravelRest\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Storm23\\LaravelRest\\Tests\\": "tests/"
+        }
+    }
+}
