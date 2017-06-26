@@ -38,7 +38,7 @@ class Response
 
     public static function object($data = [])
     {
-        $eTag = md5($data);
+        $eTag = md5(serialize($data));
 
         if (\Request::header('If-None-Match') === $eTag) {
             return self::basic('Not modified.', 304);
