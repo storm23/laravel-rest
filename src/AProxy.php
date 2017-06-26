@@ -12,11 +12,11 @@ abstract class AProxy
 
 	abstract protected function getEndpoint();
 
-	public function __construct($cid)
+	public function __construct($cid = null)
 	{
 		if (!isset($cid)) {
 
-			throw new \Exception('cid is required.');
+			$cid = uniqid();
 		}
 
 		$this->client = new APIClient($this->getEndpoint(), env('VERIFY_SSL', true));
