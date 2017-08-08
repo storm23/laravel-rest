@@ -97,10 +97,10 @@ abstract class AProxy
 
 	private function showErrors()
 	{
-		$message = [];
+        $message = [];
 		foreach ($this->client->errors as $error) {
 
-			$message[] = '['.$error['code']."] ".$error['message'];
+			$message[] = $error['message'];
 		}
 
 		return implode("\r\n", $message);
@@ -110,7 +110,7 @@ abstract class AProxy
 	{
 		if ($response === false) {
 
-			throw new \Exception($this->showErrors());
+            throw new \Exception($this->showErrors());
 		}
 
 		$body = $response->getBody();
