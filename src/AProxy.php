@@ -12,7 +12,7 @@ abstract class AProxy
 
 	abstract protected function getEndpoint();
 
-	public function __construct($cid = null)
+	public function __construct($cid = null, $bearer = null)
 	{
 		if (!isset($cid)) {
 
@@ -21,6 +21,11 @@ abstract class AProxy
 
 		$this->client = new APIClient($this->getEndpoint(), env('VERIFY_SSL', true));
 		$this->client->setConstantParams(['cid' => $cid]);
+
+        if (isset($bearer)) {
+
+            $this->client->setConstantHeaders(['Authorization' => 'Bearer '.$bearer]);
+        }
 	}
 
 	protected function get($url, array $queryParams = null, $returnPaginator = false)
