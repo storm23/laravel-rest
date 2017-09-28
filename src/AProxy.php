@@ -40,9 +40,9 @@ abstract class AProxy
 		return $this->getBody($response);
 	}
 
-	protected function post($url, array $formParams, array $queryParams = null)
+	protected function post($url, array $formParams, array $queryParams = null, array $multipart = null)
 	{
-		$response = $this->client->post($url, $formParams, $queryParams);
+		$response = $this->client->post($url, $formParams, $queryParams, $multipart);
 
 		return $this->getBody($response);
 	}
